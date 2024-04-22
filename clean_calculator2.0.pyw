@@ -2,12 +2,13 @@ import pywinstyles
 from tkinter import *
 from customtkinter import *
 from PIL import Image
+import pywinstyles
 
 root=CTk(fg_color="white")
 root.title("My Calculator")
 set_appearance_mode("light")
-set_default_color_theme("green")
-
+set_default_color_theme("dark-blue")
+pywinstyles.change_header_color(root,"#2156A6")
 root.geometry("320x320")
 
 f=CTkFrame(root,fg_color="transparent")
@@ -21,7 +22,7 @@ button_frame.pack(pady=0,padx=20)
 bfl=CTkFrame(button_frame,corner_radius=2,fg_color="white")
 bfl.grid(row=0,column=0,padx=0,pady=0)
 
-bfr=CTkFrame(button_frame,corner_radius=2,fg_color="#21A666")
+bfr=CTkFrame(button_frame,corner_radius=2,fg_color="white")
 bfr.grid(row=0,column=1,padx=0,pady=0)
 
 w=40
@@ -66,7 +67,7 @@ b_back.grid(row=4,column=2,padx=0,pady=0)
 class Key2:
     def __init__(self,r,c,t,color="transparent") -> None:
         self.text=t
-        self.button=CTkButton(bfr,text=t,fg_color=color,text_color="black",command=self.click,width=70,height=w,corner_radius=2)
+        self.button=CTkButton(bfr,text=t,fg_color="#8DA1C0",text_color="#2156A6",command=self.click,width=70,height=w,corner_radius=0)
         self.button.grid(row=r,column=c,padx=0,pady=0) 
     def click(self):
         e.insert(END,self.text)
@@ -81,6 +82,6 @@ def equal():
     x=eval(e.get())
     e.delete(0,END)
     e.insert(0,x)
-b_equal=CTkButton(bfr,text="=",fg_color="transparent",text_color="black",command=equal,width=70,height=w,corner_radius=2)
+b_equal=CTkButton(bfr,text="=",fg_color="#2156A6",text_color="white",command=equal,width=70,height=w,corner_radius=2)
 b_equal.grid(row=4,column=0,padx=0,pady=0)
 root.mainloop()
